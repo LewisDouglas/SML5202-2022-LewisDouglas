@@ -16,42 +16,64 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-<div class="container mt-3">
-  <h2>Verb conjugation</h2>
-  <p>You can learn the conjugation of regular verbs here:</p>
-  <table class="table">
-    <thead class="table-dark">
-      <tr>
-        <th>AR Verbs</th>
-        <th>ER Verbs</th>
-        <th>IR Verbs</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>- o</td>
-        <td>- as</td>
-        <td>- a </td>
-        <td>- amos </td>
-        <td>- ais </td>
-        <td>- am </td>
-        
-      </tr>
-      <tr>
-        <td>- o</td>
-        <td>- es</td>
-        <td>- e</td>
-        <td>- emos</td>
-        <td>- eis</td>
-        <td>- em</td>
-      </tr>
-      <tr>
-        <td>- o</td>
-        <td>- es</td>
-        <td>- e</td>
-        <td>- imos</td>
-        <td>- is</td>
-        <td>- em</td>
-      </tr>
-    </tbody>
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Regular Verbs</h2>
+
+<table>
+  <tr>
+    <th>Ar Verbs</th>
+    <th>Er Verbs</th>
+    <th>Ir Verbs</th>
+  </tr>
+  <tr>
+    <td>- o</td>
+    <td>- o</td>
+    <td>- o</td>
+  </tr>
+  <tr>
+    <td>- as</td>
+    <td>- es</td>
+    <td>- es</td>
+  </tr>
+  <tr>
+    <td>- a</td>
+    <td>- e</td>
+    <td>-e</td>
+  </tr>
+  <tr>
+    <td>-amos</td>
+    <td>-emos</td>
+    <td>-emos</td>
+  </tr>
+  <tr>
+    <td>-ais</td>
+    <td>-eis</td>
+    <td>-is</td>
+  </tr>
+  <tr>
+    <td>-am</td>
+    <td>-em</td>
+    <td>-em</td>
+  </tr>
+</table>
+
+</body>
+</html>

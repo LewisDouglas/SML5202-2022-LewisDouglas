@@ -12,3 +12,84 @@ title: culture
 <h1>Cluture in Portugal and Brazil</h1>
 <h5>The two main countries known for speaking Portuguese in the world are Portugal and Brazil. The reason for the language being so popualr and widespread accross the world, particularly in Brazil dates back to the 1500's. This was during the time that Christopher Colombus 'discovered' South America. However, it was not only the Spanish that 'discovered' the continent, but also the Portuguese. As such a treaty between Spain and Portugal was drawn by the Spanish born pope, Alexander VI. A treaty known as 'The Treaty of Tordesillas'. A line was drawn down the continent and Spain was granted permission to explor and conquer West of the line, Portugal to the East, however, at first this mostly left the Portuguese to explore just the Atlantic ocean off the East coast of South America. As such a new treaty was drawn and the line moved futher West, and so, Portugal could now explore more of the East of the conitinent, and this is the land now known as modern day Brazil.</h5>
 <h5> It was around the year of 1530 when it was found to be a rich source of Brazilwood (Pau-Brasil), where Brazil gets its name from. </h5>
+
+<p>Learn more about Portguese culture by following the links to either Portugal or Brazil.</p>
+<li><a href ="brazil.html"> Brazil</a></li>
+<li><a href ="portugal.html"> Portugal</a></li>
+
+<br></br>
+<hr></hr>
+<p>Alternatilvley search here:</p>
+
+<hr></hr>
+<br></br>
+
+<div class="row">
+ <div class="col-sm-6">
+<h1>A wikipedia search tool</h1>
+
+<header class="searchForm-container">
+<img src="https://image.ibb.co/e6vOFQ/wikipedia.png" alt="Wikipedia Logo">
+<form class="searchForm">
+        <input type="search" class="searchForm-input">
+        <button type="submit" class="icon searchIcon">
+          <img src="https://image.ibb.co/cpG8zk/search.png" alt="Magnifying Glass Icon">
+        </button>
+        <a href="" class="icon randomIcon">
+          <img src="https://image.ibb.co/fR5OX5/random.png" alt="Shuffle Icon">
+        </a>
+      </form>
+</header>
+<section class="searchResults"></section>
+ </div>
+<div class="col-sm-4"></div>
+</div>
+	  
+<script>
+  function handleSubmit(event) {
+    // prevent page from reloading when form is submitted
+  event.preventDefault();
+  // get the value of the input field
+  const input = document.querySelector('.searchForm-input').value;
+  // remove whitespace from the input
+  const searchQuery = input.trim();
+  // call `fetchResults` and pass it the `searchQuery`
+  fetchResults(searchQuery);
+}
+
+function fetchResults(searchQuery) {
+	  const endpoint = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=10&srsearch=${searchQuery}`;
+  	fetch(endpoint)
+  		.then(response => response.json())
+  		.then(data => {
+        const results = data.query.search;
+  	  	displayResults(results);
+		})
+       .catch(() => document.querySelector('.searchForm-input').value = 'Please enter a search term.');
+       //.catch(() => console.log('An error occured'));
+}
+
+function displayResults(results) {
+  const searchResults = document.querySelector('.searchResults');
+  searchResults.innerHTML = '';
+  results.forEach(result => {
+  const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
+  
+  searchResults.insertAdjacentHTML('beforeend',
+  
+  `<div class="resultItem">
+  <h3 class="resultItem-title">
+  <a href="${url}" target="_blank" rel="noopener">${result.title}</a>
+  </h3>
+  <span class="resultItem-snippet">${result.snippet}</span><br>
+  <a href="${url}" class="resultItem-link" target="_blank" rel="noopener">${url}</a>
+  </div>`
+  );
+  
+});
+
+console.log(results);
+}
+const form = document.querySelector('.searchForm');
+form.addEventListener('submit', handleSubmit);
+</script>

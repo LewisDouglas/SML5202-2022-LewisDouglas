@@ -2,95 +2,41 @@
 layout: default
 title: Homepage
 ---
-
-
-<h1>Welcome</h1>
-<h3> With this website you will be able to learn all about the Portuguese language and its culture.</h3>
-<h3> Learn with online lessons, games, intetractive quizes and excercises that have been specifically enginered to give the most interactive online tuition to our students</h3>
-<h5> Portuguese is a romance language, spoken globally by over 250 million poeple on three continents. Mostly spoken in Brazil, Portugal, but also Mozambique, Angola and Guinea-Bissau to name a few countries. </h5>
-<h5> As such, there is an array of variations in these native 'dialects' spoken globally, however, the basic rules remain the same throughout. On this site you can learn the basics to the Portuguese language, and will be able to have the fundamental building blocks required to take your language learning to the next level. </h5>
-<p> These lessons will focus mainly on the European and Brazilian variations of the Portuguese language, as they are the most popular. </p>
-<p> You can navigate the site with the following sections:</p>
-<ul>
-  <li><a href ="grammar.html"> Grammar</a></li>
-  <li><a href ="vocabulary.html"> Vocabulary</a></li>
-  <li><a href ="Pronounciation.html"> Pronounciation</a></li>
-</ul>
-
-<hr>
-
-
-<div class="row">
- <div class="col-sm-6">
-<h1>A wikipedia search tool</h1>
-
-<header class="searchForm-container">
-<img src="https://image.ibb.co/e6vOFQ/wikipedia.png" alt="Wikipedia Logo">
-<form class="searchForm">
-        <input type="search" class="searchForm-input">
-        <button type="submit" class="icon searchIcon">
-          <img src="https://image.ibb.co/cpG8zk/search.png" alt="Magnifying Glass Icon">
-        </button>
-        <a href="" class="icon randomIcon">
-          <img src="https://image.ibb.co/fR5OX5/random.png" alt="Shuffle Icon">
-        </a>
-      </form>
-</header>
-<section class="searchResults"></section>
- </div>
-<div class="col-sm-4"></div>
+<div class="mx-auto text-1xl w-4/5 text-center">
+    <p>Portugese Tutor is a website dedicated to helping you learn all about the Portuguese language and its
+	culture.</p>
+    <br>
+    <h2 class="text-4xl font-bold mb-4">How to use the site</h2>
+    <ul class="list-none">
+	<li>To access all the content on this site, please use the main navigation bar at the top of the page as well
+	    as any internal links you may find on the site's pages.</li>
+	    <br>
+	    <li>We have included a helpful Search Wikipedia widget at the bottom of each page that you can use to find out more about the topics on this site!</li>
+	    <br>
+	<li>Learn with online lessons, games, intetractive quizes and excercises that have been specifically
+	    engineered
+	    to give the most interactive online tuition to our students.</li>
+	<li></li>
+    </ul>
+    <p></p>
+    <br>
+    <p></p>
+    <br>
+    <h2 class="text-4xl font-bold mb-4">A little bit about Portugese...</h2>
+    <p>Portuguese is a romance language, spoken globally by over 250 million poeple on three continents. Mostly
+	spoken in Brazil, Portugal, but also Mozambique, Angola and Guinea-Bissau to name a few countries.</p>
+    <br>
+    <p>As such, there is an array of variations in these native 'dialects' spoken globally, however, the basic
+	rules remain the same throughout. On this site you can learn the basics to the Portuguese language, and
+	will
+	be able to have the fundamental building blocks required to take your language learning to the next
+	level.</p>
+    <br>
+    <p>The content on this site will mainly cover the European and Brazilian variations of the Portuguese
+	language, as they are the most popular. However we encourage you to do more research into all the of the
+	other amazing variations of Portugese there are!</p>
+    <br>
 </div>
-	  
-<script>
-  function handleSubmit(event) {
-    // prevent page from reloading when form is submitted
-  event.preventDefault();
-  // get the value of the input field
-  const input = document.querySelector('.searchForm-input').value;
-  // remove whitespace from the input
-  const searchQuery = input.trim();
-  // call `fetchResults` and pass it the `searchQuery`
-  fetchResults(searchQuery);
-}
-
-function fetchResults(searchQuery) {
-	  const endpoint = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=10&srsearch=${searchQuery}`;
-  	fetch(endpoint)
-  		.then(response => response.json())
-  		.then(data => {
-        const results = data.query.search;
-  	  	displayResults(results);
-		})
-       .catch(() => document.querySelector('.searchForm-input').value = 'Please enter a search term.');
-       //.catch(() => console.log('An error occured'));
-}
-
-function displayResults(results) {
-  const searchResults = document.querySelector('.searchResults');
-  searchResults.innerHTML = '';
-  results.forEach(result => {
-  const url = encodeURI(`https://en.wikipedia.org/wiki/${result.title}`);
-  
-  searchResults.insertAdjacentHTML('beforeend',
-  
-  `<div class="resultItem">
-  <h3 class="resultItem-title">
-  <a href="${url}" target="_blank" rel="noopener">${result.title}</a>
-  </h3>
-  <span class="resultItem-snippet">${result.snippet}</span><br>
-  <a href="${url}" class="resultItem-link" target="_blank" rel="noopener">${url}</a>
-  </div>`
-  );
-  
-});
-
-console.log(results);
-}
-const form = document.querySelector('.searchForm');
-form.addEventListener('submit', handleSubmit);
-</script>
-
-
 
 
 

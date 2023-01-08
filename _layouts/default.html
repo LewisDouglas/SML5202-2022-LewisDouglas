@@ -103,10 +103,10 @@
       <div class="container mt-5">
        {{ content }}
       </div>
-      <header class="searchForm-container">
+      <header class="wikiSearchForm-container">
             <img src="https://image.ibb.co/e6vOFQ/wikipedia.png" alt="Wikipedia Logo block" class="inline w-20">
-            <form class="searchForm inline">
-                <input type="search" class="inline border-2 rounded w-72 mt-3" placeholder="Search Wikipedia...">
+            <form class="wikiSearchForm inline">
+                <input type="search" class="wikiSearchForm-input inline border-2 rounded w-72 mt-3" placeholder="Search Wikipedia...">
             </form>
         </header>
         <section class="searchResults"></section>
@@ -116,7 +116,7 @@
         // prevent page from reloading when form is submitted
         event.preventDefault();
         // get the value of the input field
-        const input = document.querySelector('.searchForm-input').value;
+        const input = document.querySelector('.wikiSearchForm-input').value;
         // remove whitespace from the input
         const searchQuery = input.trim();
         // call `fetchResults` and pass it the `searchQuery`
@@ -131,7 +131,7 @@
                 const results = data.query.search;
                 displayResults(results);
             })
-            .catch(() => document.querySelector('.searchForm-input').value = 'Please enter a search term.');
+            .catch(() => document.querySelector('.wikiSearchForm-input').value = 'Please enter a search term.');
         //.catch(() => console.log('An error occured'));
     }
 
@@ -154,7 +154,7 @@
 
         });
     }
-    const form = document.querySelector('.searchForm');
+    const form = document.querySelector('.wikiSearchForm');
     form.addEventListener('submit', handleSubmit);
 </script>
 </html>

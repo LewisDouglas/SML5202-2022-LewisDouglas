@@ -93,9 +93,6 @@ for (i = 0; i < person.names.length; i++) {
 <h1 class="notranslate">My Web Page</h1>
 
 <div class="notranslate">
-<p> Hello Everybody!</p>
-
-<p> Translate this page:</p>
 
 <div id="google_translate_element"></div>
 
@@ -114,12 +111,8 @@ cb=googleTranslateElementInit"></script>
 
 <!--START OUTER DIV TO WRAP PAGE TEXT CONTENT AND SET IT NOT TO TRANSLATE -->
 <div class="notranslate">  
-<h1>Translation Example</h1>
-<p>This page contains a customised version of Google Translate, for students to translate items they wish to. It's a bit experimental, so try it out.</p>
-<p>Note: The basic code for Google Translate will translate the entire page. So we have to set up some form fields and block the translation from applying to the whole page.</p>
 <p>Enter your phrase and choose a language:</p>
 
-<!-- SET UP TRANSLATION FIELDS IN TWO COLUMNS: TEXTAREA (transInput) IN LEFT COL; OUTPUT (transOutput) IN paragraph in RIGHT COL -->
   <div class="row">
   <div class="col-sm-6 p-3 bg-light text-white">
      <div id="google_translate_element"></div>
@@ -152,11 +145,10 @@ function googleTranslateElementInit() {
 }
 </script>
 
-<!-- SCRIPT 2: LINK TO GOOGLE TRANSLATION FUNCTION SCRIPT  -->
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- SCRIPT 3: FUNCTION TO ENSURE PAGE TITLE IN BROWSER TAB DOES NOT TRANSLATE WHEN PAGE LOADS -->
+<!-- FUNCTION TO ENSURE PAGE TITLE IN BROWSER TAB DOES NOT TRANSLATE WHEN PAGE LOADS -->
 
 <script>
   document.addEventListener("DOMContentLoaded", (event) => {
@@ -164,7 +156,6 @@ function googleTranslateElementInit() {
   });
 </script>
 
-<!-- END OF SCRIPTS -->
   </body>
 </html>
 

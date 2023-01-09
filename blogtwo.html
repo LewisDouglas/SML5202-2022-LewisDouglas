@@ -12,8 +12,8 @@ title: blog
     <label for="content">Content:</label>
     <textarea class="form-control" id="content" name="content" rows="10"></textarea>
   </div>
-  <button onClick="createBlogPost()" class="btn btn-primary">Submit Post</button>
 </form>
+<button onClick="createBlogPost()" class="btn btn-primary">Submit Post</button>
 
 <div id="blogPosts">
 
@@ -63,10 +63,13 @@ title: blog
   }
   
   const createBlogPost = () => {
+    const postTitle = document.getElementById("title").value;
+    const postContent = document.getElementById("content").value;
+
     var data = {
-      'createDate': 'example value',
-      'title': 'example value',
-      'content': 'example value'
+      'createDate': new Date().toLocaleDateString(),
+      'title': postTitle,
+      'content': postContent
     };
     var url = 'https://sheet2api.com/v1/BRRiYPu2QfuT/portugese-tutor/blogData';
 
@@ -84,7 +87,7 @@ title: blog
       .catch((error) => {
         console.error('Error:', error);
       });
-
+      
   }
 
   getBlogPosts();

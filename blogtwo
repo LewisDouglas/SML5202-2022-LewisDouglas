@@ -1,0 +1,16 @@
+---
+layout: default
+title: blog
+---
+<h2>Write a New Blog Post</h2>
+<form action="/submit-post" method="post" id="newPostForm">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" class="form-control" id="title" name="title" size="50">
+  </div>
+  <div class="form-group">
+    <label for="content">Content:</label>
+    <textarea class="form-control" id="content" name="content" rows="10"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit Post</button>
+</form>

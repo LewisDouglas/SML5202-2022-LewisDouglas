@@ -12,7 +12,7 @@ title: blog
     <label for="content">Content:</label>
     <textarea class="form-control" id="content" name="content" rows="10"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Submit Post</button>
+  <button onClick="createBlogPost()" class="btn btn-primary">Submit Post</button>
 </form>
 
 <div id="blogPosts">
@@ -55,6 +55,31 @@ title: blog
 
           blogPostsDiv.appendChild(node);
         });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
+  }
+  
+  const createBlogPost = () => {
+    var data = {
+      'createDate': 'example value',
+      'title': 'example value',
+      'content': 'example value'
+    };
+    var url = 'https://sheet2api.com/v1/BRRiYPu2QfuT/portugese-tutor/blogData';
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
       })
       .catch((error) => {
         console.error('Error:', error);

@@ -39,14 +39,14 @@ title: blog
         data.map((post) => {
           const node = document.createElement("div");
           const postTitle = document.createElement("h1");
-          postTitle.className = "text-3xl font-bold mb-4";
+          postTitle.className = "text-3xl mt-2 mb-2";
           const postContent = document.createElement("p");
           postContent.className = "mb-2";
           const postDate = document.createElement("span");
           const hr = document.createElement("hr");
           postTitle.innerHTML = post.title;
           postContent.innerHTML = post.content;
-          postDate.innerHTML = `Date: ${post.createDate}`;
+          postDate.innerHTML = `<strong>Date</strong>: ${post.createDate}`;
 
           node.append(hr);
           node.appendChild(postTitle);

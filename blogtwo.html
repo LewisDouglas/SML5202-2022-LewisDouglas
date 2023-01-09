@@ -9,6 +9,10 @@ title: blog
     <input type="text" class="form-control" id="title" name="title" size="50">
   </div>
   <div class="form-group">
+      <label for="title">Author</label>
+      <input type="text" class="form-control" id="author" name="author" size="20">
+    </div>
+  <div class="form-group">
     <label for="content">Content:</label>
     <textarea class="form-control" id="content" name="content" rows="10"></textarea>
   </div>
@@ -45,15 +49,18 @@ title: blog
           const postContent = document.createElement("p");
           postContent.className = "mb-2";
           const postDate = document.createElement("span");
+          const author = document.createElement("span");
           const hr = document.createElement("hr");
           postTitle.innerHTML = post.title;
           postContent.innerHTML = post.content;
-          postDate.innerHTML = `<strong>Date</strong>: ${post.createDate}`;
+          postDate.innerHTML = `<strong>Date:</strong>: ${post.createDate} `;
+          author.innerHTML = `<strong>Author:</strong> ${post.author}`;
 
           node.append(hr);
           node.appendChild(postTitle);
           node.appendChild(postContent);
           node.appendChild(postDate);
+          node.appendChild(author);
 
           blogPostsDiv.appendChild(node);
         });
@@ -67,11 +74,13 @@ title: blog
   const createBlogPost = () => {
     const postTitle = document.getElementById("title").value;
     const postContent = document.getElementById("content").value;
+    const author = document.getElementById("author").value;
 
     var data = {
       'createDate': new Date().toLocaleDateString(),
       'title': postTitle,
-      'content': postContent
+      'content': postContent,
+      'author': author
     };
     var url = 'https://sheet2api.com/v1/BRRiYPu2QfuT/portugese-tutor/blogData';
 

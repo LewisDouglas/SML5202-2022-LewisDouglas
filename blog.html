@@ -94,6 +94,22 @@ function showUpload() {
 <div id="posts">
   <!-- Posts will be displayed here -->
 </div>
+  
+  
+  
+<!-- Login form -->
+<form action="/login" method="post" id="loginForm">
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password"><br>
+  <input type="submit" value="Log In">
+</form> 
+
+<!-- Forum posts -->
+<div id="posts">
+  <!-- Posts will be displayed here -->
+</div>
 
 <!-- Reply form template -->
 <template id="replyFormTemplate">
@@ -111,4 +127,22 @@ function showUpload() {
     <input type="hidden" name="postId" value="">
     <textarea name="content" rows="10" cols="50"></textarea><br>
     <input type="submit" value="Save Changes">
-    <button type="button" class="cancelEdit">
+    <button type="button" class="cancelEditButton">Cancel</button>
+  </form>
+</template>
+
+<!-- JavaScript to handle dynamic behavior -->
+<script>
+  // Function to display reply form
+  function showReplyForm(parentId) {
+    var replyForm = document.querySelector("#replyFormTemplate").cloneNode(true);
+    replyForm.removeAttribute("id");
+    replyForm.querySelector("input[name='parentId']").value = parentId;
+    replyForm.style.display = "block";
+    document.querySelector("#post-" + parentId + " .replies").appendChild(replyForm);
+  }
+  
+  // Function to cancel reply form
+  function cancelReplyForm(parentId) {
+   
+

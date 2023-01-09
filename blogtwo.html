@@ -31,6 +31,8 @@ title: blog
   const getBlogPosts = () => {
     var url = 'https://sheet2api.com/v1/BRRiYPu2QfuT/portugese-tutor/blogData?';
     const blogPostsDiv = document.getElementById("blogPosts");
+    
+    removeChilds(blogPostsDiv);
 
     fetch(url)
       .then(response => response.json())
@@ -80,15 +82,20 @@ title: blog
       },
       body: JSON.stringify(data),
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
+      .then(() => {
+        getBlogPosts();
       })
       .catch((error) => {
         console.error('Error:', error);
       });
       
   }
+  
+  const removeChilds = (parent) => {
+    while (parent.lastChild) {
+      parent.removeChild(parent.lastChild);
+    }
+  };
 
   getBlogPosts();
 </script>

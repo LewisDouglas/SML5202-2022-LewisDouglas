@@ -13,3 +13,49 @@ title: blog
   <textarea id="content" name="content" rows="10" cols="50"></textarea><br>
   <input type="submit" value="Submit">
 </form> 
+
+
+<script>
+function validateForm() {
+  var title = document.forms["postForm"]["title"].value;
+  var author = document.forms["postForm"]["author"].value;
+  var content = document.forms["postForm"]["content"].value;
+  var categories = document.forms["postForm"]["categories"].value;
+  if (title == "" || author == "" || content == "") {
+    alert("All fields must be filled out");
+    return false;
+  }
+  if (categories == "none") {
+    alert("Please select a category for the blog post");
+    return false;
+  }
+}
+
+function showUpload() {
+  var fileUpload = document.getElementById("fileUpload");
+  var categories = document.forms["postForm"]["categories"].value;
+  if (categories == "photos") {
+    fileUpload.style.display = "block";
+  } else {
+    fileUpload.style.display = "none";
+  }
+}
+</script>
+
+<form action="/submit-post" method="post" name="postForm" onsubmit="return validateForm()">
+  <h2>Write a Blog Post</h2>
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title"><br>
+  <label for="author">Author:</label><br>
+  <input type="text" id="author" name="author"><br>
+  <label for="content">Content:</label><br>
+  <textarea id="content" name="content" rows="10" cols="50"></textarea><br>
+  <label for="categories">Category:</label>
+  <select id="categories" name="categories" onchange="showUpload()">
+    <option value="none">Select a category</option>
+    <option value="travel">Travel</option>
+    <option value="culture">Culture</option>
+    <option value="photos">Photos</option>
+  </select><br>
+  <div id="fileUpload" style="display:none">
+    <label

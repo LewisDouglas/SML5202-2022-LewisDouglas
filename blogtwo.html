@@ -82,12 +82,12 @@ title: blog
       },
       body: JSON.stringify(data),
     })
-      .then(() => {
-        getBlogPosts();
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    .then(() => {
+      getBlogPosts();
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
       
   }
   

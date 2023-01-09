@@ -15,6 +15,10 @@ title: blog
   <button type="submit" class="btn btn-primary">Submit Post</button>
 </form>
 
+<div id="blogPosts">
+
+</div>
+
 <br></br>
 <hr></hr>
 
@@ -22,3 +26,39 @@ title: blog
 <p>Featured Blog: "Aprendendo Português"</p>
 <p>"Aprendendo Português" is a blog that provides tips and resources for learners of Portuguese as a second language. The blog is written by a native Portuguese speaker and covers a wide range of topics, including grammar, vocabulary, and cultural insights.</p>
 <p>  Check out the blog at <a href="https://aprendendoportugues.com/">https://aprendendoportugues.com/</a></p>
+
+<script>
+  const getBlogPosts = () => {
+    var url = 'https://sheet2api.com/v1/BRRiYPu2QfuT/portugese-tutor/blogData?';
+    const blogPostsDiv = document.getElementById("blogPosts");
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        data.map((post) => {
+          const node = document.createElement("div");
+          const postTitle = document.createElement("h1");
+          const postContent = document.createElement("p");
+          const postDate = document.createElement("span");
+          const hr = document.createElement("hr");
+          postTitle.innerHTML = post.title;
+          postContent.innerHTML = post.content;
+          postDate.innerHTML = post.createDate;
+
+          node.append(hr);
+          node.appendChild(postTitle);
+          node.appendChild(postContent);
+          node.appendChild(postDate);
+
+          blogPostsDiv.appendChild(node);
+        });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
+  }
+
+  getBlogPosts();
+</script>
